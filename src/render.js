@@ -61,7 +61,7 @@ function handleDataAvailable(e) {
     recordedChunks.push(e.data);
 }
 
-async function handleStop(e) {
+async function handleStop() {
     const blob = new Blob(recordedChunks, {
         type: FILE_TYPE
     });
