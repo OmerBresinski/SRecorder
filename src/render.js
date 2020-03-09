@@ -7,6 +7,8 @@ const videoElement = document.querySelector("video");
 const startBtn = document.querySelector("#startBtn");
 const stopBtn = document.querySelector("#stopBtn");
 const srcSelect = document.querySelector("#videoSelect");
+const exitBtn = document.querySelector("#exitBtn");
+const minimizeBtn = document.querySelector("#minimizeBtn");
 
 const recordedChunks = [];
 let mediaRecorder;
@@ -14,15 +16,29 @@ let mediaRecorder;
 srcSelect.addEventListener("click", getVideoSources);
 startBtn.addEventListener("click", handleStartRecording);
 stopBtn.addEventListener("click", handleStopRecording);
+exitBtn.addEventListener("click", handleExit);
+minimizeBtn.addEventListener("click", handleMinimize);
+
+function handleExit() {
+    remote.getCurrentWindow().close();
+}
+
+function handleMinimize() {
+    remote.getCurrentWindow().minimize();
+}
 
 function handleStartRecording() {
     mediaRecorder.start();
-    startBtn.innerText = "Recording";
+    startBtn.innerText = "O";
+    startBtn.style.color = "red";
+    startBtn.style.border = "none";
 }
 
 function handleStopRecording() {
     mediaRecorder.stop();
     startBtn.innerText = "Start";
+    startBtn.style.color = "blueviolet";
+    startBtn.style.border = "2px solid blueviolet";
 }
 
 async function getVideoSources() {

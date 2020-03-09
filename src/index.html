@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <title>Screen Recorder</title>
     <head>
         <meta charset="UTF-8" />
         <title>Screen Recorder</title>
@@ -7,17 +8,25 @@
         <script defer src="render.js"></script>
     </head>
     <body>
+        <div id="topBar">
+            <div id="topBarBtns">
+                <div id="exitBtn" class="frameBtn">X</div>
+                <div id="minimizeBtn" class="frameBtn">-</div>
+            </div>
+        </div>
         <div id="appContainer">
             <div id="header">
-                <h1>Screen Recorder</h1>
+                Source:
+                <div id="videoSelect" class="btn btn-src">Set Source ⥡</div>
             </div>
             <div id="previewStreamContainer">
                 <video id="previewStream"></video>
             </div>
             <div id="options">
-                <div id="startBtn">Start</div>
-                <div id="stopBtn">Stop</div>
-                <div id="videoSelect">Video Source</div>
+                <div id="optionsBtnContainer">
+                    <div id="startBtn" class="btn btn-start">Start</div>
+                    <div id="stopBtn" class="btn btn-stop">Stop</div>
+                </div>
             </div>
         </div>
     </body>
